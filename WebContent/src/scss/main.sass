@@ -1,0 +1,129 @@
+@import 'bootstrap/bootstrap-reboot.scss'
+@import 'bootstrap/bootstrap-grid.scss'
+@import 'base'
+@import 'common'
+@import 'color.scss'
+
+body
+    font-family: 'Lato', 'Roboto', 'Open Sans', sans-serif
+
+#left-side-bar 
+    position: fixed
+    left: 0
+    width: 250px
+    background-color: #0f223f
+    top: 0
+    bottom: 0
+    overflow-y: auto
+    height: 100vh
+
+#admin-box
+    border-bottom: 1px solid #fff
+    margin-bottom: 20px
+    padding: 20px 10px
+    .image
+        border-radius: 50%
+        overflow: hidden
+        width: 70px
+        height: 70px
+        margin-bottom: 5px
+        display: inline-block
+        vertical-align: middle
+        margin-right: 15px
+        font-size: 0
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+    .admin__name
+        color: #fff
+        display: inline-block
+        vertical-align: middle
+
+#main-content
+    position: fixed
+    left: 250px
+    right: 0
+    top: 0
+    bottom: 0
+    overflow-y: auto
+    padding: 50px 30px
+    .title
+
+
+.menu-01
+    .item
+        padding: 7px 15px
+        transition: all 0.3s ease-in-out
+        &:hover
+            background-color: rgba(#fff, 0.2)
+        a
+            color: #fff
+            display: block
+            width: 100%
+
+.paid-salary
+    .paid-salary__title
+        font-size: 20px
+        color: #555555
+    .button-01
+        margin-top: 35px
+
+.employee-infor
+    margin: 0 0 30px 30px
+    .row
+        max-width: 1000px
+
+.sum
+    margin-top: 35px
+    padding-top: 30px
+    border-top: 1px solid #000
+    font-size: 20px
+    .sum__number
+        margin-left: 5px
+        font-weight: bold
+
+.highlight
+    color: red
+
+.rose
+    margin-top: 30px
+
+.table-01
+    border: 1px solid #333
+    border-bottom: none
+    .table__header
+        border-bottom: 1px solid #333
+        background-color: #0f223f
+        font-size: 0
+        .table__col
+            color: #fff
+            border-right: none !important
+    .table__row
+        font-size: 0
+        border-bottom: 1px solid #333
+        &:hover
+            background-color: #ccc
+    .table__col
+        display: inline-block
+        font-size: 16px
+        color: #333333
+        padding: 7px 5px
+    .table__col:not(:last-child)
+        border-right: 1px solid #333
+
+// list employee table
+$list-employees-col: (1: 6%, 2: 30%, 3: 29%, 4: 15%, 5: 20%)
+.table--list-employees
+    max-width: 1000px
+    @each $index, $percent in $list-employees-col
+        .table__col-#{$index}
+            width: $percent
+
+// salary employees table
+$salary-employees-col: (1: 6%, 2: 16%, 3: 12%, 4: 10%, 5: 14%, 6: 10%, 7: 16%, 8: 16%)
+.table--salary-employees
+    max-width: 1000px
+    @each $index, $percent in $salary-employees-col
+        .table__col-#{$index}
+            width: $percent

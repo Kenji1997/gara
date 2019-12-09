@@ -1,0 +1,23 @@
+@import "variables";
+
+.hide-md {
+  @media screen and (min-width: $tablet) {
+    display: none !important;
+  }
+}
+
+.hide-sm {
+  @media screen and (max-width: $desktop) {
+    display: none !important;
+  }
+}
+
+.hide-lg {
+  @media screen and (min-width: $desktop) {
+    display: none !important;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

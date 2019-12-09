@@ -1,0 +1,151 @@
+@import "vendor/position";
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+button:active,
+button:focus {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.row-wrapper {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+%clearFix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.button-01 {
+  background-color: #21ae1f;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+
+  &:not(.button--disable):hover {
+    background-color: #15cb12;
+  }
+
+  &.button--disable {
+    cursor: not-allowed;
+    background-color: #2f52a0;
+  }
+}
+
+@mixin header__trigger-toggle-menu($weight: 2px, $color: #333) {
+  cursor: pointer;
+  width: 26px;
+  height: 22px;
+  line-height: 0;
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  span {
+    display: inline-block;
+    height: $weight;
+    width: 26px;
+    background-color: $color;
+    @include absolute(50%, 0, null, 0);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-50%);
+  }
+
+  &:after,
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: $weight;
+    background-color: $color;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:after {
+    top: auto;
+    bottom: 2px;
+  }
+
+  &.active {
+    span {
+      margin-left: 20px;
+      opacity: 0;
+    }
+
+    &:after {
+      transform: rotateZ(-135deg);
+      bottom: 9px;
+    }
+
+    &:before {
+      top: 10px;
+      transform: rotateZ(135deg);
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+// mixin
+@mixin font($fontSize: null, $color: null, $fontWeight: null, $lineHeight: null, $fontFamily: null) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: $color;
+  font-family: $fontFamily;
+  line-height: $lineHeight;
+}
+
+@mixin clearFix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin trans() {
+  transition: all 0.3s ease-in-out;
+}
